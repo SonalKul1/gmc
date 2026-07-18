@@ -1,4 +1,5 @@
 ﻿import { useEffect, useState } from 'react';
+import heroBackground from '../assets/science-chemical-medical-research-labscience-lab-background-wallpaper-118488633.jpg';
 import {
   Box,
   Heading,
@@ -182,9 +183,19 @@ function TestimonialsSlider() {
 
 export default function HomePage() {
   return (
-    <Box>
+    <Box width = "calc(100% - 1rem)" mx="auto">
       {/* Hero */}
-      <Box bg="blue.800" color="white" py={{ base: 14, md: 20 }} px={{ base: 4, md: 8 }} textAlign="center">
+      <Box    
+        color="white"
+        py={{ base: 14, md: 20 }}
+        px={{ base: 4, md: 8 }}
+        textAlign="center"
+        backgroundImage={`linear-gradient(135deg, rgba(2, 44, 87, 0.82), rgba(2, 44, 87, 0.55)), url(${heroBackground})`}
+        backgroundSize="cover"
+        backgroundPosition="center"
+        backgroundRepeat="no-repeat"
+        borderRadius={"3rem"}
+      >
         <Heading size={{ base: 'xl', md: '2xl' }} fontWeight="900" letterSpacing="tight" mb={4}>
           Precision Engineered for Science
         </Heading>
