@@ -28,7 +28,7 @@ const productLinks = [
 export default function Footer() {
   return (
     <Box as="footer" bg="gray.800" color="gray.300" mt="auto">
-      <Box maxW="1200px" mx="auto" px={{ base: 4, md: 8 }} py={10}>
+      <Box maxW="1200px" mx="auto" px={{ base: 4, md: 8 }} py={"1rem"}>
         <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} gap={8}>
           {/* Brand Column */}
           <VStack align="flex-start" gap={3}>
@@ -38,10 +38,7 @@ export default function Footer() {
             <Text fontSize="xs" color="blue.300" fontStyle="italic">
               Glass · Metal · Ceramic Technology
             </Text>
-            <Text fontSize="sm" lineHeight="tall">
-              Specialists in laboratory glassware, photocell reactors, and
-              hydrogen distribution systems. Delivering precision for science.
-            </Text>
+            
           </VStack>
 
           {/* Quick Links */}
@@ -49,7 +46,7 @@ export default function Footer() {
             <Text color="white" fontWeight="700" fontSize="sm" mb={1}>
               Quick Links
             </Text>
-            {quickLinks.map((link) => (
+            {/* {quickLinks.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
@@ -59,15 +56,15 @@ export default function Footer() {
               >
                 {link.label}
               </Link>
-            ))}
+            ))} */}
           </VStack>
 
           {/* Products */}
           <VStack align="flex-start" gap={2}>
-            <Text color="white" fontWeight="700" fontSize="sm" mb={1}>
+            <Text color="white" fontWeight="700" fontSize="sm">
               Our Products
             </Text>
-            {productLinks.map((link) => (
+            {/* {productLinks.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
@@ -77,11 +74,11 @@ export default function Footer() {
               >
                 {link.label}
               </Link>
-            ))}
+            ))} */}
           </VStack>
         </SimpleGrid>
 
-        <Separator borderColor="gray.600" mt={8} mb={4} />
+        <Separator borderColor="gray.600" mt={".5rem"} mb={".5rem"} />
 
         <Flex
           direction={{ base: 'column', sm: 'row' }}
@@ -93,8 +90,8 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} GMC Technology. All rights reserved.
           </Text>
           <HStack gap={4} fontSize="xs">
-            <Link href="#" _hover={{ color: 'blue.300' }}>Privacy Policy</Link>
-            <Link href="#" _hover={{ color: 'blue.300' }}>Terms of Use</Link>
+            <Link href="#" color="blue.300">Privacy Policy</Link>
+            <Link href="#" color="blue.300">Terms of Use</Link>
           </HStack>
         </Flex>
       </Box>
