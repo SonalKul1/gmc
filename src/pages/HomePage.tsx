@@ -1,17 +1,13 @@
-﻿import { useEffect, useState } from 'react';
-import heroBackground from '../assets/science-chemical-medical-research-labscience-lab-background-wallpaper-118488633.jpg';
+﻿import heroBackground from '../assets/science-chemical-medical-research-labscience-lab-background-wallpaper-118488633.jpg';
 
 import {
   Box,
   Heading,
   Text,
   SimpleGrid,
-  HStack,
-  Flex,
-  Button,
   Separator,
 } from '@chakra-ui/react';
-import { partners, products, testimonials } from '../constants/constants';
+import { partners, products } from '../constants/constants';
 import TestimonialsSlider from '../components/Testimonials';
 
 // ─── HomePage ─────────────────────────────────────────────────────────────────

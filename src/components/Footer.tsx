@@ -9,22 +9,6 @@ import {
   SimpleGrid,
 } from '@chakra-ui/react';
 
-const quickLinks = [
-  { label: 'Home', href: '#' },
-  { label: 'About Us', href: '#about' },
-  { label: 'Products', href: '#products' },
-  { label: 'Catalogue', href: '#catalogue' },
-  { label: 'Partners', href: '#partners' },
-  { label: 'Contact Us', href: '#contact' },
-];
-
-const productLinks = [
-  { label: 'Laboratory Glassware', href: '#' },
-  { label: 'Photochemical Reactors', href: '#' },
-  { label: 'Hydrogen Distribution Systems', href: '#' },
-  { label: 'Custom Fabrication', href: '#' },
-];
-
 export default function Footer() {
   return (
     <Box as="footer" bg="gray.800" color="gray.300" mt="auto">
