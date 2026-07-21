@@ -1,5 +1,4 @@
 ﻿import heroBackground from '../assets/science-chemical-medical-research-labscience-lab-background-wallpaper-118488633.jpg';
-import gmcLogo from '../assets/logo.svg';
 
 import {
   Box,

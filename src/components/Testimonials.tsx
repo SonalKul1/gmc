@@ -87,7 +87,7 @@ const TestimonialsSlider : React.FC = () => {
         </Box>
 
         <Flex justify="center" mt={6} gap={3} align="center">
-          <Button onClick={prev} size="sm" variant="outline" colorPalette="blue" borderRadius="full">
+          <Button onClick={prev} size="sm" variant="outline" colorScheme="blue" borderRadius="full">
             &#8592; Prev
           </Button>
 
@@ -106,7 +106,7 @@ const TestimonialsSlider : React.FC = () => {
             ))}
           </HStack>
 
-          <Button onClick={next} size="sm" variant="outline" colorPalette="blue" borderRadius="full">
+          <Button onClick={next} size="sm" variant="outline" colorScheme="blue" borderRadius="full">
             Next &#8594;
           </Button>
         </Flex>
