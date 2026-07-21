@@ -1,10 +1,12 @@
 ﻿import heroBackground from '../assets/science-chemical-medical-research-labscience-lab-background-wallpaper-118488633.jpg';
+import gmcLogo from '../assets/logo.svg';
 
 import {
   Box,
   Heading,
   Text,
   SimpleGrid,
+  Avatar,
 } from '@chakra-ui/react';
 import { partners, products } from '../constants/constants';
 import TestimonialsSlider from '../components/Testimonials';
@@ -103,10 +105,10 @@ export default function HomePage() {
       <Box  mt={"1rem"}>
         <Box maxW="1200px" mx="auto">
           <Heading size="lg" mb={3} color="blue.800" textAlign="center">Our Partners</Heading>
-          <Text textAlign="center" color="gray.400" fontSize="xs" fontWeight="700" letterSpacing="widest" textTransform="uppercase" mb={10}>
-            We collaborate with trusted organisations to deliver quality and expertise worldwide.
+          <Text textAlign="center" color="gray.500" fontSize="xs" fontWeight="700" letterSpacing="widest" textTransform="uppercase" mb={10}>
+            Delivering specialized services backed by over two decades of industry excellence — our partners are distinguished experts, accredited for their work with DAE and BARC.
           </Text>
-          <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} gap={6}>
+          <SimpleGrid columns={{ base: 1, sm: 2 }} gap={6}>
             {partners.map((p) => (
               <Box
                 key={p.name}
@@ -132,10 +134,11 @@ export default function HomePage() {
                   alignItems="center"
                   justifyContent="center"
                 >
-                  <Text fontSize="xs" color="blue.500" fontWeight="600">LOGO</Text>
+                  <Avatar name={p.logo} boxSize="48px" />
                 </Box>
                 <Text fontWeight="700" fontSize="sm" mb={2}>{p.name}</Text>
                 <Text fontSize="xs" color="gray.500" lineHeight="tall">{p.description}</Text>
+                <Text fontSize="sm" color="blue.600" fontWeight="700" mt={2}>{p.experience}</Text>
               </Box>
             ))}
           </SimpleGrid>

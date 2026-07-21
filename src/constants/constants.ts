@@ -5,10 +5,8 @@ import coreProduct  from '../assets/undraw_scientist_5td0.svg'
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 export const partners = [
-  { name: 'Partner Company A', description: 'Leading distributor of lab instruments across South Asia.' },
-  { name: 'Partner Company B', description: 'Trusted supplier for pharmaceutical research facilities.' },
-  { name: 'Partner Company C', description: 'Global partner specialising in photochemical applications.' },
-  { name: 'Partner Company D', description: 'Regional distributor for industrial and educational labs.' },
+  { logo: 'PKK',name: 'Mr. Pravesh Kumar Kulshreshtha', description: 'Rtd. BARC Scientific Engineer' , experience: '25 years' },
+  { logo: 'MM', name: 'Mr. Murugan', description: 'Rtd. BARC Glass Blowing Expert' , experience: '25 years' },
 ];
 
 export const testimonials = [
