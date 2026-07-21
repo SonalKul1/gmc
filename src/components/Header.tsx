@@ -53,7 +53,7 @@ export default function Header() {
         w="100%"
       >
         {/* Left — Logo + Company Info */}
-        <Flex align="center" gap={"1.5rem"} w={{ base: "100%", md: "auto" }} gridColumn={{ base: "1", md: "1" }} gridRow={{ base: "2", md: "1" }}>
+        <Flex align="center" gap={"1.5rem"} w={{ base: "100%", md: "auto" }} gridColumn={{ base: "1", md: "1" }} gridRow={{ base: "1", md: "1" }}>
           <Box
             w="8rem"
             h="8rem"
@@ -95,7 +95,7 @@ export default function Header() {
           </Box>
         </Flex>
         {/* Right — Nav Actions */}
-        <HStack gap={3} w={{ base: "100%", md: "auto" }} justify={{ base: "flex-start", md: "flex-end" }} gridColumn={{ base: "1", md: "2" }} gridRow={{ base: "2", md: "1" }} justifySelf={{ base: "start", md: "end" }} mt={{ base: 2, md: 0 }}>
+        <HStack gap={3} w={{ base: "100%", md: "auto" }} justify={{ base: "flex-end", md: "flex-end" }} gridColumn={{ base: "1", md: "2" }} gridRow={{ base: "2", md: "1" }} justifySelf={{ base: "stretch", md: "end" }} mt={{ base: 2, md: 0 }}>
           <Menu>
             <MenuButton as={Button} variant="plain" colorScheme="blue" size="sm" _hover={{ textDecoration: 'underline', fontWeight: '700', border: 'none', outline: 'none', boxShadow: 'none' }}>
               <Flex gap={"0.25rem"}> 
