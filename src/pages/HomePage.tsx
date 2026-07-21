@@ -5,7 +5,6 @@ import {
   Heading,
   Text,
   SimpleGrid,
-  Separator,
 } from '@chakra-ui/react';
 import { partners, products } from '../constants/constants';
 import TestimonialsSlider from '../components/Testimonials';
@@ -62,7 +61,13 @@ export default function HomePage() {
               <Text fontSize="xs" fontWeight="700" color="blue.600" textTransform="uppercase" letterSpacing="widest" mb={2}>
                 {item.tag}
               </Text>
-              <Box height="5rem" display="flex" alignItems="center" justifyContent="center" mb={3}>
+              <Box
+                height="5rem"
+                display={{ base: 'none', md: 'flex' }}
+                alignItems="center"
+                justifyContent="center"
+                mb={3}
+              >
                 <img
                   src={item.image}
                   alt={item.title}
@@ -78,12 +83,13 @@ export default function HomePage() {
       </Box>
 
       {/* About */}
-      <Box bg="gray.200" py={14} px={{ base: 4, md: 8 }}  borderRadius={"1rem"}>
+      <Box bg="gray.200"  py={{ base: 5, md: 10 }}
+        px={{ base: 4, md: 8 }}  borderRadius={"1rem"}>
         <Box w="100%" mx="auto">
-          <Heading size="lg" mb={6} color="blue.800" textAlign="center">
+          <Heading size="lg" color="blue.800" textAlign="center">
             About GMC Technology
           </Heading>
-          <Text maxW="80%" mx="auto" textAlign="center" lineHeight="1.9" color="gray.500" fontSize="md" fontWeight="500" mb={10}>
+          <Text maxW="80%" mx="auto" textAlign="center" lineHeight="1.9" color="gray.500" fontSize="md" fontWeight="500">
             Founded on the principles of precision, quality, and innovation, GMC Technology
             (Glass Metal Ceramic Technology) is a specialist manufacturer and supplier of scientific
             glassware and laboratory instruments. With decades of expertise, we serve research
@@ -94,7 +100,7 @@ export default function HomePage() {
       </Box>
 
       {/* Partners */}
-      <Box py={14} px={{ base: 4, md: 8 }}>
+      <Box  mt={"1rem"}>
         <Box maxW="1200px" mx="auto">
           <Heading size="lg" mb={3} color="blue.800" textAlign="center">Our Partners</Heading>
           <Text textAlign="center" color="gray.400" fontSize="xs" fontWeight="700" letterSpacing="widest" textTransform="uppercase" mb={10}>
@@ -135,9 +141,6 @@ export default function HomePage() {
           </SimpleGrid>
         </Box>
       </Box>
-
-      <Separator />
-
       {/* Testimonials */}
       <Box bg="gray.50" px={{ base: 4, md: 8 }}>
         <Box maxW="1200px" mx="auto">

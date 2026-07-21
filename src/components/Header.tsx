@@ -1,8 +1,38 @@
-import { Box, Flex, Text, Button, HStack } from "@chakra-ui/react";
-import { IconFileDownload, IconPhone } from "@tabler/icons-react";
+import  { useState } from "react";
+import { Box, Flex, Text, Button, HStack, Grid, Menu, MenuButton, MenuList, MenuItem, useToast } from "@chakra-ui/react";
+import {  IconBlocks, IconPhone } from "@tabler/icons-react";
 import gmcLogo from "../assets/logo.svg";
+import QRScannerModal from "../components/QRScannerModal";
 
 export default function Header() {
+  const [isQrOpen, setQrOpen] = useState(false);
+  const toast = useToast();
+
+  async function downloadFile(url: string, filename: string) {
+    try {
+      const resp = await fetch(url, { cache: 'no-cache' });
+      
+      const blob = await resp.blob();
+      const link = document.createElement('a');
+      const href = URL.createObjectURL(blob);
+      link.href = href;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(href);
+
+    } catch (err) {
+      toast({
+        title: 'Download error',
+        description: 'An unexpected error occurred while downloading the file.',
+        status: 'error',
+        duration: 6000,
+        isClosable: true,
+      });
+      window.location.href = url;
+    }
+  }
   return (
     <Box
       as="header"
@@ -12,16 +42,18 @@ export default function Header() {
       bg="white"
       
     >
-      <Flex
+      <Grid
         mx="auto"
         px={{ base: "2rem", md: "3rem" }}
         py={"0.5rem"}
-        align="center"
-        justify="space-between"
-        
+        templateColumns={{ base: "1fr", md: "2fr auto" }}
+        templateRows={{ base: "auto auto", md: "auto" }}
+        alignItems={{ base: "start", md: "center" }}
+        gap={{ base: "0.75rem", md: 0 }}
+        w="100%"
       >
         {/* Left — Logo + Company Info */}
-        <Flex align="center" gap={"1.5rem"}>
+        <Flex align="center" gap={"1.5rem"} w={{ base: "100%", md: "auto" }} gridColumn={{ base: "1", md: "1" }} gridRow={{ base: "2", md: "1" }}>
           <Box
             w="8rem"
             h="8rem"
@@ -46,8 +78,8 @@ export default function Header() {
               fontSize={{ base: "xl", md: "2xl" }}
               fontWeight="900"
               lineHeight="1.1"
-              letterSpacing="-0.03em"  
-              color="blue.800"            
+              letterSpacing="-0.03em"
+              color="blue.800"
             >
               GMC Technology
             </Text>
@@ -63,32 +95,40 @@ export default function Header() {
           </Box>
         </Flex>
         {/* Right — Nav Actions */}
-        <HStack gap={3}>
+        <HStack gap={3} w={{ base: "100%", md: "auto" }} justify={{ base: "flex-start", md: "flex-end" }} gridColumn={{ base: "1", md: "2" }} gridRow={{ base: "2", md: "1" }} justifySelf={{ base: "start", md: "end" }} mt={{ base: 2, md: 0 }}>
+          <Menu>
+            <MenuButton as={Button} variant="plain" colorScheme="blue" size="sm" _hover={{ textDecoration: 'underline', fontWeight: '700', border: 'none', outline: 'none', boxShadow: 'none' }}>
+              <Flex gap={"0.25rem"}> 
+              <IconBlocks size={16}/>
+              Services
+              </Flex>
+            </MenuButton>
+            <MenuList>
+              <MenuItem fontSize="sm" _hover={{ textDecoration: 'underline', fontWeight: 700 }} onClick={() => downloadFile('/GMC-Product-Catalogue.pdf', 'GMC-Product-Catalogue.pdf')}>
+                Product Catalogue
+              </MenuItem>
+              <MenuItem fontSize="sm" _hover={{ textDecoration: 'underline', fontWeight: 700 }} onClick={() => downloadFile('/GMC-Repair_Catalogue.jpeg', 'GMC-Repair_Catalogue.jpeg')}>
+                Repair Services
+              </MenuItem>
+            </MenuList>
+          </Menu>
+
           <Button
             variant="plain"
-            colorPalette="blue"
+            colorScheme="blue"
             size="sm"
             fontWeight="600"
             textDecoration="none"
-            _hover={{ textDecoration: 'underline', fontWeight: '800', border: 'none', outline: 'none', boxShadow: 'none' }}
-          >
-            <IconFileDownload size={16} />
-            Catalogue
-          </Button>
-          <Button
-            variant="plain"
-            colorPalette="blue"
-            size="sm"
-            fontWeight="600"
-            textDecoration="none"
-            _hover={{ textDecoration: 'underline', fontWeight: '800', border: 'none', outline: 'none', boxShadow: 'none' }}
-            
+            _hover={{ textDecoration: 'underline', fontWeight: '700', border: 'none', outline: 'none', boxShadow: 'none' }}
+            onClick={() => setQrOpen(true)}
+            gap=".25rem"
           >
             <IconPhone size={16} />
             Contact Us
           </Button>
-        </HStack>
-      </Flex>
+          <QRScannerModal isOpen={isQrOpen} onClose={() => setQrOpen(false)} />
+         </HStack>
+      </Grid>
     </Box>
   );
 }

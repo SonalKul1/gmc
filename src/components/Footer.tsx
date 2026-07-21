@@ -5,7 +5,6 @@ import {
   Link,
   VStack,
   HStack,
-  Separator,
   SimpleGrid,
 } from '@chakra-ui/react';
 
@@ -61,8 +60,6 @@ export default function Footer() {
             ))} */}
           </VStack>
         </SimpleGrid>
-
-        <Separator borderColor="gray.600" mt={".5rem"} mb={".5rem"} />
 
         <Flex
           direction={{ base: 'column', sm: 'row' }}
