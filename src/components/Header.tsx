@@ -1,6 +1,6 @@
 import  { useState } from "react";
 import { Box, Flex, Text, Button, HStack, Grid, Menu, MenuButton, MenuList, MenuItem, useToast } from "@chakra-ui/react";
-import {  IconBlocks, IconDownload, IconPhone } from "@tabler/icons-react";
+import { IconBlocks, IconDownload, IconPhone, IconUsers } from "@tabler/icons-react";
 import gmcLogo from "../assets/logo.svg";
 import QRScannerModal from "../components/QRScannerModal";
 
@@ -95,12 +95,28 @@ export default function Header() {
           </Box>
         </Flex>
         {/* Right — Nav Actions */}
-        <HStack gap={3} w={{ base: "100%", md: "auto" }} justify={{ base: "flex-end", md: "flex-end" }} gridColumn={{ base: "1", md: "2" }} gridRow={{ base: "2", md: "1" }} justifySelf={{ base: "stretch", md: "end" }} mt={{ base: 2, md: 0 }}>
-          <Box display={{ base: "inline-flex", md: "none" }}>
+        <HStack gap={".1rem"} w={{ base: "100%", md: "auto" }} justify={{ base: "flex-end", md: "flex-end" }} gridColumn={{ base: "1", md: "2" }} gridRow={{ base: "2", md: "1" }} justifySelf={{ base: "stretch", md: "end" }} mt={{ base: 2, md: 0 }}>
+          
+          <Button
+            display={{ base: "none", md: "inline-flex" }}
+            variant="plain"
+            colorScheme="blue"
+            size="sm"
+            fontWeight="600"
+            textDecoration="none"
+            _hover={{ textDecoration: 'underline', fontWeight: '700', border: 'none', outline: 'none', boxShadow: 'none' }}
+            onClick={() => console.log('Product clicked')}
+            gap=".25rem"
+          >
+            <IconBlocks size={16} />
+            Product
+          </Button>
+
+          <Box >
             <Menu>
               <MenuButton as={Button} variant="plain" colorScheme="blue" size="sm" _hover={{ textDecoration: 'underline', fontWeight: '700', border: 'none', outline: 'none', boxShadow: 'none' }}>
                 <Flex gap={"0.25rem"}> 
-                  <IconBlocks size={16}/>
+                  <IconDownload size={16}/>
                   Catalogue
                 </Flex>
               </MenuButton>
@@ -116,36 +132,21 @@ export default function Header() {
               </MenuList>
             </Menu>
           </Box>
-
+          
           <Button
-            display={{ base: "none", md: "inline-flex" }}
+            display={{ base: 'none', md: 'inline-flex' }}
             variant="plain"
             colorScheme="blue"
             size="sm"
             fontWeight="600"
             textDecoration="none"
             _hover={{ textDecoration: 'underline', fontWeight: '700', border: 'none', outline: 'none', boxShadow: 'none' }}
-            onClick={() => downloadFile('/GMC-Product-Catalogue.pdf', 'GMC-Product-Catalogue.pdf')}
+            onClick={() => console.log('Our Team clicked')}
             gap=".25rem"
           >
-            <IconDownload size={16} />
-            Product Catalogue
+            <IconUsers size={16} />
+            Our Team
           </Button>
-          <Button
-            display={{ base: "none", md: "inline-flex" }}
-            variant="plain"
-            colorScheme="blue"
-            size="sm"
-            fontWeight="600"
-            textDecoration="none"
-            _hover={{ textDecoration: 'underline', fontWeight: '700', border: 'none', outline: 'none', boxShadow: 'none' }}
-            onClick={() => downloadFile('/GMC-Repair_Catalogue.jpeg', 'GMC-Repair_Catalogue.jpeg')}
-            gap=".25rem"
-          >
-            <IconDownload size={16} />
-            Repair Services
-          </Button>
-
           <Button
             variant="plain"
             colorScheme="blue"

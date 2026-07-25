@@ -11,7 +11,7 @@ import {
   SimpleGrid,
   Flex,
 } from "@chakra-ui/react";
-import { IconBuildingFactory, IconBuildingBank, IconFileText, IconPhone } from '@tabler/icons-react';
+import {  IconBuildingBank, IconFileText, IconPhone } from '@tabler/icons-react';
 
 interface QRScannerModalProps {
   isOpen: boolean;
@@ -38,7 +38,7 @@ export default function QRScannerModal({ isOpen, onClose }: QRScannerModalProps)
                       Phone
                     </Text>
                   </Flex>
-                  <Text fontSize="md" fontWeight="600" color="gray.700" mb={1}>
+                  <Text fontSize="md" color="gray.700" mb={1}>
                     +91‑9630194429
                   </Text>
                 </Box>
@@ -59,7 +59,7 @@ export default function QRScannerModal({ isOpen, onClose }: QRScannerModalProps)
                   </Text>
                 </Box>
 
-                <Box bg="gray.50" p={4} borderRadius="2xl" border="1px solid" borderColor="blue.50">
+                <Box width="100%" bg="gray.50" p={4} borderRadius="2xl" border="1px solid" borderColor="blue.50">
                   <Flex align="center" gap={3} mb={3}>
                     <Box bg="blue.50" borderRadius="xl" w="3rem" h="3rem" display="flex" alignItems="center" justifyContent="center">
                       <IconFileText size={24} color="#2b6cb0" />
