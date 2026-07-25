@@ -14,9 +14,9 @@ import TestimonialsSlider from '../components/Testimonials';
 
 export default function HomePage() {
   return (
-    <Box width = "calc(100% - 1rem)" mx="auto">
+    <Box width="calc(100% - 1rem)" mx="auto">
       {/* Hero */}
-      <Box    
+      <Box
         color="white"
         py={{ base: 5, md: 10 }}
         px={{ base: 4, md: 8 }}
@@ -29,19 +29,37 @@ export default function HomePage() {
         position="relative"
         mb={"1rem"}
       >
-        <Heading size={{ base: 'xl', md: '2xl' }} fontWeight="900" letterSpacing="-0.03em"  mb={4}>
-          Precision Engineered for Science
-        </Heading>
-        <Text fontSize={{ base: 'md', md: 'lg' }} maxW="80%" mx="auto" opacity={0.88} lineHeight="1.5" fontWeight="500" mb={8}>
-          GMC Technology delivers world-class laboratory glassware, photochemical reactors, and hydrogen
-          distribution systems - crafted with glass, metal, and ceramic expertise for research institutions,
-          universities, and industrial labs across India and beyond.
+        <Text
+          as="h1"
+          fontFamily="'Nunito', system-ui, Avenir, Helvetica, Arial, sans-serif"
+          fontSize={{ base: '2xl', md: '4xl' }}
+          fontWeight="500"
+          letterSpacing="-0.03em"
+          lineHeight="1.15"
+          mb={4}
+          maxW={{ base: '100%', md: '70%' }}
+          mx="auto"
+        >
+          Shaping Materials for Science
+        </Text>
+        <Text
+          fontFamily="'Nunito', system-ui, Avenir, Helvetica, Arial, sans-serif"
+          fontSize={{ base: 'xs', md: 'sm' }}
+          letterSpacing="0.08em"
+          textTransform="uppercase"
+          color="blue.100"
+          mb={6}
+        >
+          Ultra‑High‑Pressure & Photochemical Engineering for Modern Science          
+        </Text>
+        <Text fontSize={{ base: 'md', md: 'lg' }} maxW="80%" mx="auto" opacity={0.88} lineHeight="1.75"  mb={8}>
+          GMC Technology delivers precision‑built high‑pressure reactors and multi‑layer photochemical systems engineered for extreme conditions, advanced research, and breakthrough innovation.
         </Text>
 
         <SimpleGrid
-          columns={{ base: 1, md: 3 }}
+          columns={{ base: 1, md: 4 }}
           gap={6}
-          maxW="65%"
+          maxW="70%"
           mx="auto"
           mt={6}
           position="relative"
@@ -57,23 +75,25 @@ export default function HomePage() {
               boxShadow="lg"
               border="1px solid"
               borderColor="whiteAlpha.300"
-               _hover={{ boxShadow: 'md', transform: 'translateY(-.5rem)' }}
+              transition="transform 0.35s ease, box-shadow 0.35s ease"
+              _hover={{ boxShadow: 'md', transform: 'translateY(-.5rem)' }}
             >
+              
               <Text fontSize="xs" fontWeight="700" color="blue.600" textTransform="uppercase" letterSpacing="widest" mb={2}>
                 {item.tag}
               </Text>
               <Box
-                height="5rem"
-                display={{ base: 'none', md: 'flex' }}
-                alignItems="center"
-                justifyContent="center"
                 mb={3}
+                display="inline-flex"
+                justifyContent="center"
+                alignItems="center"
+                w="4.5rem"
+                h="4.5rem"
+                bg="rgba(66, 153, 225, 0.12)"
+                borderRadius="2xl"
+                p={2}
               >
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  style={{ maxHeight: "100%", width: "100%", objectFit: "contain" }}
-                />
+                {item.svg}
               </Box>
               <Heading size="sm" color="blue.800">
                 {item.title}
@@ -84,8 +104,8 @@ export default function HomePage() {
       </Box>
 
       {/* About */}
-      <Box bg="gray.200"  py={{ base: 5, md: 10 }}
-        px={{ base: 4, md: 8 }}  borderRadius={"1rem"}>
+      <Box bg="gray.200" py={{ base: 5, md: 10 }}
+        px={{ base: 4, md: 8 }} borderRadius={"1rem"}>
         <Box w="100%" mx="auto">
           <Heading size="lg" color="blue.800" textAlign="center">
             About GMC Technology
@@ -101,7 +121,7 @@ export default function HomePage() {
       </Box>
 
       {/* Partners */}
-      <Box  mt={"1rem"}>
+      <Box mt={"1rem"}>
         <Box maxW="1200px" mx="auto">
           <Heading size="lg" mb={3} color="blue.800" textAlign="center">Our Partners</Heading>
           <Text textAlign="center" color="gray.500" fontSize="xs" fontWeight="700" letterSpacing="widest" textTransform="uppercase" mb={10}>

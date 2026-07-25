@@ -55,8 +55,8 @@ export default function Header() {
         {/* Left — Logo + Company Info */}
         <Flex align="center" gap={"1.5rem"} w={{ base: "100%", md: "auto" }} gridColumn={{ base: "1", md: "1" }} gridRow={{ base: "1", md: "1" }}>
           <Box
-            w="8rem"
-            h="8rem"
+            w="4rem"
+            h="4rem"
             borderRadius="full"
             bg="blue.700"
             display="flex"
