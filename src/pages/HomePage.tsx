@@ -1,13 +1,13 @@
 ﻿import heroBackground from '../assets/science-chemical-medical-research-labscience-lab-background-wallpaper-118488633.jpg';
+import msmeLogo from '../assets/msme.png';
 
 import {
   Box,
   Heading,
   Text,
   SimpleGrid,
-  Avatar,
-} from '@chakra-ui/react';
-import { partners, products } from '../constants/constants';
+  } from '@chakra-ui/react';
+import { products } from '../constants/constants';
 import TestimonialsSlider from '../components/Testimonials';
 
 // ─── HomePage ─────────────────────────────────────────────────────────────────
@@ -53,7 +53,8 @@ export default function HomePage() {
           Ultra‑High‑Pressure & Photochemical Engineering for Modern Science          
         </Text>
         <Text fontSize={{ base: 'md', md: 'lg' }} maxW="80%" mx="auto" opacity={0.88} lineHeight="1.75"  mb={8}>
-          GMC Technology delivers precision‑built high‑pressure reactors and multi‑layer photochemical systems engineered for extreme conditions, advanced research, and breakthrough innovation.
+          GMC Technology delivers precision‑built high‑pressure reactors and multi‑layer photochemical systems engineered for extreme 
+          conditions, advanced research, and breakthrough innovation.
         </Text>
 
         <SimpleGrid
@@ -76,6 +77,7 @@ export default function HomePage() {
               border="1px solid"
               borderColor="whiteAlpha.300"
               transition="transform 0.35s ease, box-shadow 0.35s ease"
+              opacity={"85%"}
               _hover={{ boxShadow: 'md', transform: 'translateY(-.5rem)' }}
             >
               
@@ -107,62 +109,30 @@ export default function HomePage() {
       <Box bg="gray.200" py={{ base: 5, md: 10 }}
         px={{ base: 4, md: 8 }} borderRadius={"1rem"}>
         <Box w="100%" mx="auto">
-          <Heading size="lg" color="blue.800" textAlign="center">
+          <Heading size="lg" color="blue.800" textAlign="center" mb="1rem">
             About GMC Technology
           </Heading>
           <Text maxW="80%" mx="auto" textAlign="center" lineHeight="1.9" color="gray.500" fontSize="md" fontWeight="500">
-            Founded on the principles of precision, quality, and innovation, GMC Technology
-            (Glass Metal Ceramic Technology) is a specialist manufacturer and supplier of scientific
-            glassware and laboratory instruments. With decades of expertise, we serve research
-            laboratories, pharmaceutical companies, educational institutions, and industrial facilities
-            with custom-fabricated and standard catalogue products that meet rigorous international standards.
+            GMC Technology delivers high‑performance scientific equipment engineered from advanced glass, metal, and ceramic materials, 
+            specializing in ultra‑high‑pressure reactors, multi‑layer photochemical systems, hydrothermal autoclaves, bioreactors, hydrogen 
+            distribution manifolds, and custom laboratory glassware. With precision fabrication, leak‑tight sealing, controlled thermal and 
+            optical environments, and expert glassware repair capabilities, GMC supports research, pilot‑scale processing, and specialized 
+            industrial applications with reliable, technically robust solutions.
           </Text>
+          <Box mt={8} display="flex" justifyContent="center">
+            <Box
+              as="img"
+              src={msmeLogo}
+              alt="MSME Logo"
+              maxW={{ base: '4rem', md: '8rem' }}
+              width="100%"
+              p={1}              
+            />
+          </Box>
+
         </Box>
       </Box>
 
-      {/* Partners */}
-      <Box mt={"1rem"}>
-        <Box maxW="1200px" mx="auto">
-          <Heading size="lg" mb={3} color="blue.800" textAlign="center">Our Partners</Heading>
-          <Text textAlign="center" color="gray.500" fontSize="xs" fontWeight="700" letterSpacing="widest" textTransform="uppercase" mb={10}>
-            Delivering specialized services backed by over two decades of industry excellence — our partners are distinguished experts, accredited for their work with DAE and BARC.
-          </Text>
-          <SimpleGrid columns={{ base: 1, sm: 2 }} gap={6}>
-            {partners.map((p) => (
-              <Box
-                key={p.name}
-                bg="white"
-                border="1px solid"
-                borderColor="gray.200"
-                borderRadius="xl"
-                p={6}
-                textAlign="center"
-                boxShadow="sm"
-                _hover={{ borderColor: 'blue.400', boxShadow: 'md' }}
-                transition="all 0.2s"
-              >
-                <Box
-                  w="64px" h="64px"
-                  bg="blue.50"
-                  border="2px dashed"
-                  borderColor="blue.300"
-                  borderRadius="xl"
-                  mx="auto"
-                  mb={4}
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="center"
-                >
-                  <Avatar name={p.logo} boxSize="48px" />
-                </Box>
-                <Text fontWeight="700" fontSize="sm" mb={2}>{p.name}</Text>
-                <Text fontSize="xs" color="gray.500" lineHeight="tall">{p.description}</Text>
-                <Text fontSize="sm" color="blue.600" fontWeight="700" mt={2}>{p.experience}</Text>
-              </Box>
-            ))}
-          </SimpleGrid>
-        </Box>
-      </Box>
       {/* Testimonials */}
       <Box bg="gray.50" px={{ base: 4, md: 8 }}>
         <Box maxW="1200px" mx="auto">

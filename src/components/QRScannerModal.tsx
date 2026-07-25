@@ -8,10 +8,10 @@ import {
   ModalCloseButton,
   Text,
   Center,
-  Image,
-  Button
+  SimpleGrid,
+  Flex,
 } from "@chakra-ui/react";
-import gmcQr from "../assets/gmc_vcard_qr.svg";
+import { IconBuildingFactory, IconBuildingBank, IconFileText, IconPhone } from '@tabler/icons-react';
 
 interface QRScannerModalProps {
   isOpen: boolean;
@@ -23,25 +23,58 @@ export default function QRScannerModal({ isOpen, onClose }: QRScannerModalProps)
     <Modal isOpen={isOpen} onClose={onClose} size={{ base: "full", md: "lg" }}>
       <ModalOverlay />
       <ModalContent borderRadius="md" maxW={{ base: "95%", md: "lg" }}>
-        <ModalHeader>Contact Us — Scan QR</ModalHeader>
+        <ModalHeader>Contact Us</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
           <Box px={5} py={4}>
-            <Center gap = "2rem">
-              <Box w="100%" display={{ base: "block", md: "flex" }} gap={4}>
-                <Box flexBasis={{ base: "100%", md: "240px" }} display={{ base: "none", md: "flex" }} alignItems="center" justifyContent="center">
-                  <Image src={gmcQr} alt="GMC vCard QR" maxW="240px" width="100%" />
+            <Center flexDir="column" gap="2rem">
+              <SimpleGrid columns={{ base: 1, md: 2 }} gap={4} w="100%">
+                <Box bg="gray.50" p={4} borderRadius="2xl" border="1px solid" borderColor="blue.50">
+                  <Flex align="center" gap={3} mb={3}>
+                    <Box bg="blue.50" borderRadius="xl" w="3rem" h="3rem" display="flex" alignItems="center" justifyContent="center">
+                      <IconPhone size={24} color="#2b6cb0" />
+                    </Box>
+                    <Text fontSize="xs" letterSpacing="widest" textTransform="uppercase" color="blue.600" fontWeight="700">
+                      Phone
+                    </Text>
+                  </Flex>
+                  <Text fontSize="md" fontWeight="600" color="gray.700" mb={1}>
+                    +91‑9630194429
+                  </Text>
                 </Box>
-                <Box display={{ base: "flex", md: "none" }} flexDir="column" alignItems="center" justifyContent="center" w="100%">
-                  <Text fontSize="sm" color="gray.600" mb={2} textAlign="center">Call us</Text>
-                  <Button as="a" href="tel:+919630164429" colorScheme="blue" size="md">
-                    +91 96301 64429
-                  </Button>
+
+                <Box bg="gray.50" p={4} borderRadius="2xl" border="1px solid" borderColor="blue.50">
+                  <Flex align="center" gap={3} mb={3}>
+                    <Box bg="blue.50" borderRadius="xl" w="3rem" h="3rem" display="flex" alignItems="center" justifyContent="center">
+                      <IconBuildingBank size={24} color="#2b6cb0" />
+                    </Box>
+                    <Text fontSize="xs" letterSpacing="widest" textTransform="uppercase" color="blue.600" fontWeight="700">
+                      Registered Office
+                    </Text>
+                  </Flex>
+                  <Text fontSize="sm" color="gray.700" lineHeight="taller">
+                    GMC Technology, Rau
+                    <br />
+                    Indore - 452001
+                  </Text>
                 </Box>
-              </Box>
-              <Text fontSize="sm" color="gray.600" mt={4} textAlign="center">
-                Scan the QR code with your phone to open our contact details.
-              </Text>
+
+                <Box bg="gray.50" p={4} borderRadius="2xl" border="1px solid" borderColor="blue.50">
+                  <Flex align="center" gap={3} mb={3}>
+                    <Box bg="blue.50" borderRadius="xl" w="3rem" h="3rem" display="flex" alignItems="center" justifyContent="center">
+                      <IconFileText size={24} color="#2b6cb0" />
+                    </Box>
+                    <Text fontSize="xs" letterSpacing="widest" textTransform="uppercase" color="blue.600" fontWeight="700">
+                      Company Details
+                    </Text>
+                  </Flex>
+                  <Text fontSize="sm" color="gray.700" lineHeight="taller">
+                    CIN: 
+                    <br />
+                    GST: 
+                  </Text>
+                </Box>
+              </SimpleGrid>
             </Center>
           </Box>
         </ModalBody>

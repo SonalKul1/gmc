@@ -37,7 +37,7 @@ export const testimonials = [
 
 export const products: { title: string; tag: string; svg: ReactNode }[] = [
   {
-    title: 'High‑Pressure Hydrogen Distribution & Control Systems',
+    title: 'Hydrogen Distribution & Control Systems',
     tag: 'Specialisation',
     svg: (
       <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
@@ -49,7 +49,7 @@ export const products: { title: string; tag: string; svg: ReactNode }[] = [
     ),
   },
   {
-    title: 'Multi‑Layer Photochemical Reactor Assemblies',
+    title: 'Photochemical Reactor Assemblies',
     tag: 'Advanced Systems',
     svg: (<>
       <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
@@ -74,7 +74,7 @@ export const products: { title: string; tag: string; svg: ReactNode }[] = [
     ),
   },
   {
-    title: 'Precision Laboratory Glassware Refurbishing',
+    title: 'Laboratory Glassware Refurbishing',
     tag: 'Services',
     svg: (
       <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">

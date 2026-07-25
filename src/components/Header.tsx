@@ -1,6 +1,6 @@
 import  { useState } from "react";
 import { Box, Flex, Text, Button, HStack, Grid, Menu, MenuButton, MenuList, MenuItem, useToast } from "@chakra-ui/react";
-import {  IconBlocks, IconPhone } from "@tabler/icons-react";
+import {  IconBlocks, IconDownload, IconPhone } from "@tabler/icons-react";
 import gmcLogo from "../assets/logo.svg";
 import QRScannerModal from "../components/QRScannerModal";
 
@@ -96,22 +96,55 @@ export default function Header() {
         </Flex>
         {/* Right — Nav Actions */}
         <HStack gap={3} w={{ base: "100%", md: "auto" }} justify={{ base: "flex-end", md: "flex-end" }} gridColumn={{ base: "1", md: "2" }} gridRow={{ base: "2", md: "1" }} justifySelf={{ base: "stretch", md: "end" }} mt={{ base: 2, md: 0 }}>
-          <Menu>
-            <MenuButton as={Button} variant="plain" colorScheme="blue" size="sm" _hover={{ textDecoration: 'underline', fontWeight: '700', border: 'none', outline: 'none', boxShadow: 'none' }}>
-              <Flex gap={"0.25rem"}> 
-              <IconBlocks size={16}/>
-              Services
-              </Flex>
-            </MenuButton>
-            <MenuList>
-              <MenuItem fontSize="sm" _hover={{ textDecoration: 'underline', fontWeight: 700 }} onClick={() => downloadFile('/GMC-Product-Catalogue.pdf', 'GMC-Product-Catalogue.pdf')}>
-                Product Catalogue
-              </MenuItem>
-              <MenuItem fontSize="sm" _hover={{ textDecoration: 'underline', fontWeight: 700 }} onClick={() => downloadFile('/GMC-Repair_Catalogue.jpeg', 'GMC-Repair_Catalogue.jpeg')}>
-                Repair Services
-              </MenuItem>
-            </MenuList>
-          </Menu>
+          <Box display={{ base: "inline-flex", md: "none" }}>
+            <Menu>
+              <MenuButton as={Button} variant="plain" colorScheme="blue" size="sm" _hover={{ textDecoration: 'underline', fontWeight: '700', border: 'none', outline: 'none', boxShadow: 'none' }}>
+                <Flex gap={"0.25rem"}> 
+                  <IconBlocks size={16}/>
+                  Catalogue
+                </Flex>
+              </MenuButton>
+              <MenuList>
+                <MenuItem gap={".5rem"} fontSize="sm" _hover={{ textDecoration: 'underline', fontWeight: 700 }} onClick={() => downloadFile('/GMC-Product-Catalogue.pdf', 'GMC-Product-Catalogue.pdf')}>
+                  <IconDownload size={16} />
+                  Product Catalogue
+                </MenuItem>
+                <MenuItem gap={".5rem"} fontSize="sm" _hover={{ textDecoration: 'underline', fontWeight: 700 }} onClick={() => downloadFile('/GMC-Repair_Catalogue.jpeg', 'GMC-Repair_Catalogue.jpeg')}>
+                  <IconDownload size={16} />
+                  Repair Services Catalogue
+                </MenuItem>
+              </MenuList>
+            </Menu>
+          </Box>
+
+          <Button
+            display={{ base: "none", md: "inline-flex" }}
+            variant="plain"
+            colorScheme="blue"
+            size="sm"
+            fontWeight="600"
+            textDecoration="none"
+            _hover={{ textDecoration: 'underline', fontWeight: '700', border: 'none', outline: 'none', boxShadow: 'none' }}
+            onClick={() => downloadFile('/GMC-Product-Catalogue.pdf', 'GMC-Product-Catalogue.pdf')}
+            gap=".25rem"
+          >
+            <IconDownload size={16} />
+            Product Catalogue
+          </Button>
+          <Button
+            display={{ base: "none", md: "inline-flex" }}
+            variant="plain"
+            colorScheme="blue"
+            size="sm"
+            fontWeight="600"
+            textDecoration="none"
+            _hover={{ textDecoration: 'underline', fontWeight: '700', border: 'none', outline: 'none', boxShadow: 'none' }}
+            onClick={() => downloadFile('/GMC-Repair_Catalogue.jpeg', 'GMC-Repair_Catalogue.jpeg')}
+            gap=".25rem"
+          >
+            <IconDownload size={16} />
+            Repair Services
+          </Button>
 
           <Button
             variant="plain"
