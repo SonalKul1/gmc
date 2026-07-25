@@ -148,26 +148,6 @@ export default function Header() {
           
           <Link
             as={RouterLink}
-            to="/product"
-            display="inline-flex"
-            alignItems="center"
-            gap=".25rem"
-            color="blue.800"
-            fontWeight="600"
-            fontSize="sm"
-            textDecoration="none"
-            border="1px solid transparent"
-            _hover={{ textDecoration: 'underline', color: 'blue.900' }}
-            _active={{ textDecoration: 'none', outline: 'none', boxShadow: 'none' }}
-            _focus={{ outline: 'none', boxShadow: 'none' }}
-            _focusVisible={{ outline: 'none', boxShadow: 'none' }}
-          >
-            <IconBlocks size={16} />
-            Product
-          </Link>
-          
-          <Link
-            as={RouterLink}
             to="/team"
             display="inline-flex"
             alignItems="center"
@@ -183,7 +163,7 @@ export default function Header() {
             _focusVisible={{ outline: 'none', boxShadow: 'none' }}
           >
             <IconUsers size={16} />
-            Our Team
+            About Us
           </Link>
           <Link
             display="inline-flex"
