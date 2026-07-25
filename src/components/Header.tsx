@@ -105,11 +105,11 @@ export default function Header() {
           </Box>
         </Link>
         {/* Right — Nav Actions */}
-        <HStack gap={"1rem"} w={{ base: "100%", md: "auto" }} justify={{ base: "flex-end", md: "flex-end" }} gridColumn={{ base: "1", md: "2" }} gridRow={{ base: "2", md: "1" }} justifySelf={{ base: "stretch", md: "end" }} mt={{ base: 2, md: 0 }}>
+        <HStack gap={{ base: "0.75rem", md: "1rem" }} wrap={{ base: "wrap", md: "nowrap" }} w={{ base: "100%", md: "auto" }} justify={{ base: "flex-end", md: "flex-end" }} gridColumn={{ base: "1", md: "2" }} gridRow={{ base: "2", md: "1" }} justifySelf={{ base: "stretch", md: "end" }} mt={{ base: 2, md: 0 }}>
           <Link
             as={RouterLink}
             to="/"
-            display={{ base: 'none', md: 'inline-flex' }}
+            display="inline-flex"
             alignItems="center"
             gap=".25rem"
             color="blue.800"
@@ -149,7 +149,7 @@ export default function Header() {
           <Link
             as={RouterLink}
             to="/product"
-            display={{ base: "none", md: "inline-flex" }}
+            display="inline-flex"
             alignItems="center"
             gap=".25rem"
             color="blue.800"
@@ -169,7 +169,7 @@ export default function Header() {
           <Link
             as={RouterLink}
             to="/team"
-            display={{ base: 'none', md: 'inline-flex' }}
+            display="inline-flex"
             alignItems="center"
             gap=".25rem"
             color="blue.800"
