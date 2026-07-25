@@ -1,5 +1,6 @@
 import  { useState } from "react";
-import { Box, Flex, Text, Button, HStack, Grid, Menu, MenuButton, MenuList, MenuItem, useToast } from "@chakra-ui/react";
+import { Box, Flex, Text, Link, HStack, Grid, Menu, MenuButton, MenuList, MenuItem, Button, useToast } from "@chakra-ui/react";
+import { Link as RouterLink } from "react-router-dom";
 import { IconBlocks, IconDownload, IconPhone, IconUsers } from "@tabler/icons-react";
 import gmcLogo from "../assets/logo.svg";
 import QRScannerModal from "../components/QRScannerModal";
@@ -11,7 +12,6 @@ export default function Header() {
   async function downloadFile(url: string, filename: string) {
     try {
       const resp = await fetch(url, { cache: 'no-cache' });
-      
       const blob = await resp.blob();
       const link = document.createElement('a');
       const href = URL.createObjectURL(blob);
@@ -21,7 +21,6 @@ export default function Header() {
       link.click();
       link.remove();
       URL.revokeObjectURL(href);
-
     } catch (err) {
       toast({
         title: 'Download error',
@@ -33,6 +32,7 @@ export default function Header() {
       window.location.href = url;
     }
   }
+
   return (
     <Box
       as="header"
@@ -53,7 +53,17 @@ export default function Header() {
         w="100%"
       >
         {/* Left — Logo + Company Info */}
-        <Flex align="center" gap={"1.5rem"} w={{ base: "100%", md: "auto" }} gridColumn={{ base: "1", md: "1" }} gridRow={{ base: "1", md: "1" }}>
+        <Link
+          as={RouterLink}
+          to="/"
+          display="flex"
+          alignItems="center"
+          gap="1.5rem"
+          w={{ base: "100%", md: "auto" }}
+          gridColumn={{ base: "1", md: "1" }}
+          gridRow={{ base: "1", md: "1" }}
+          _hover={{ textDecoration: 'none' }}
+        >
           <Box
             w="4rem"
             h="4rem"
@@ -93,39 +103,42 @@ export default function Header() {
               Glass · Metal · Ceramic Technology
             </Text>
           </Box>
-        </Flex>
+        </Link>
         {/* Right — Nav Actions */}
-        <HStack gap={".1rem"} w={{ base: "100%", md: "auto" }} justify={{ base: "flex-end", md: "flex-end" }} gridColumn={{ base: "1", md: "2" }} gridRow={{ base: "2", md: "1" }} justifySelf={{ base: "stretch", md: "end" }} mt={{ base: 2, md: 0 }}>
-          
-          <Button
-            display={{ base: "none", md: "inline-flex" }}
-            variant="plain"
-            colorScheme="blue"
-            size="sm"
-            fontWeight="600"
-            textDecoration="none"
-            _hover={{ textDecoration: 'underline', fontWeight: '700', border: 'none', outline: 'none', boxShadow: 'none' }}
-            onClick={() => console.log('Product clicked')}
+        <HStack gap={".75rem"} w={{ base: "100%", md: "auto" }} justify={{ base: "flex-end", md: "flex-end" }} gridColumn={{ base: "1", md: "2" }} gridRow={{ base: "2", md: "1" }} justifySelf={{ base: "stretch", md: "end" }} mt={{ base: 2, md: 0 }}>
+          <Link
+            as={RouterLink}
+            to="/"
+            display={{ base: 'none', md: 'inline-flex' }}
+            alignItems="center"
             gap=".25rem"
+            color="blue.800"
+            fontWeight="600"
+            fontSize="sm"
+            textDecoration="none"
+            border="1px solid transparent"
+            _hover={{ textDecoration: 'underline', color: 'blue.900' }}
+            _active={{ textDecoration: 'none', outline: 'none', boxShadow: 'none' }}
+            _focus={{ outline: 'none', boxShadow: 'none' }}
+            _focusVisible={{ outline: 'none', boxShadow: 'none' }}
           >
-            <IconBlocks size={16} />
-            Product
-          </Button>
+            Home
+          </Link>
 
-          <Box >
+          <Box>
             <Menu>
-              <MenuButton as={Button} variant="plain" colorScheme="blue" size="sm" _hover={{ textDecoration: 'underline', fontWeight: '700', border: 'none', outline: 'none', boxShadow: 'none' }}>
-                <Flex gap={"0.25rem"}> 
+              <MenuButton as={Button} variant="plain" size="sm" border="1px solid transparent" _hover={{ textDecoration: 'underline', border: 'none', outline: 'none', boxShadow: 'none' }} _active={{ border: 'none', outline: 'none', boxShadow: 'none' }} _focus={{ border: 'none', outline: 'none', boxShadow: 'none' }} _focusVisible={{ border: 'none', outline: 'none', boxShadow: 'none' }}>
+                <Flex gap={"0.25rem"}>
                   <IconDownload size={16}/>
                   Catalogue
                 </Flex>
               </MenuButton>
               <MenuList>
-                <MenuItem gap={".5rem"} fontSize="sm" _hover={{ textDecoration: 'underline', fontWeight: 700 }} onClick={() => downloadFile('/GMC-Product-Catalogue.pdf', 'GMC-Product-Catalogue.pdf')}>
+                <MenuItem gap={".5rem"} fontSize="sm" _hover={{ textDecoration: 'underline' }} onClick={() => downloadFile('/GMC-Product-Catalogue.pdf', 'GMC-Product-Catalogue.pdf')}>
                   <IconDownload size={16} />
                   Product Catalogue
                 </MenuItem>
-                <MenuItem gap={".5rem"} fontSize="sm" _hover={{ textDecoration: 'underline', fontWeight: 700 }} onClick={() => downloadFile('/GMC-Repair_Catalogue.jpeg', 'GMC-Repair_Catalogue.jpeg')}>
+                <MenuItem gap={".5rem"} fontSize="sm" _hover={{ textDecoration: 'underline' }} onClick={() => downloadFile('/GMC-Repair_Catalogue.jpeg', 'GMC-Repair_Catalogue.jpeg')}>
                   <IconDownload size={16} />
                   Repair Services Catalogue
                 </MenuItem>
@@ -133,33 +146,64 @@ export default function Header() {
             </Menu>
           </Box>
           
-          <Button
-            display={{ base: 'none', md: 'inline-flex' }}
-            variant="plain"
-            colorScheme="blue"
-            size="sm"
-            fontWeight="600"
-            textDecoration="none"
-            _hover={{ textDecoration: 'underline', fontWeight: '700', border: 'none', outline: 'none', boxShadow: 'none' }}
-            onClick={() => console.log('Our Team clicked')}
+          <Link
+            as={RouterLink}
+            to="/product"
+            display={{ base: "none", md: "inline-flex" }}
+            alignItems="center"
             gap=".25rem"
+            color="blue.800"
+            fontWeight="600"
+            fontSize="sm"
+            textDecoration="none"
+            border="1px solid transparent"
+            _hover={{ textDecoration: 'underline', color: 'blue.900' }}
+            _active={{ textDecoration: 'none', outline: 'none', boxShadow: 'none' }}
+            _focus={{ outline: 'none', boxShadow: 'none' }}
+            _focusVisible={{ outline: 'none', boxShadow: 'none' }}
+          >
+            <IconBlocks size={16} />
+            Product
+          </Link>
+          
+          <Link
+            as={RouterLink}
+            to="/team"
+            display={{ base: 'none', md: 'inline-flex' }}
+            alignItems="center"
+            gap=".25rem"
+            color="blue.800"
+            fontWeight="600"
+            fontSize="sm"
+            textDecoration="none"
+            border="1px solid transparent"
+            _hover={{ textDecoration: 'underline', color: 'blue.900' }}
+            _active={{ textDecoration: 'none', outline: 'none', boxShadow: 'none' }}
+            _focus={{ outline: 'none', boxShadow: 'none' }}
+            _focusVisible={{ outline: 'none', boxShadow: 'none' }}
           >
             <IconUsers size={16} />
             Our Team
-          </Button>
-          <Button
-            variant="plain"
-            colorScheme="blue"
-            size="sm"
-            fontWeight="600"
-            textDecoration="none"
-            _hover={{ textDecoration: 'underline', fontWeight: '700', border: 'none', outline: 'none', boxShadow: 'none' }}
-            onClick={() => setQrOpen(true)}
+          </Link>
+          <Link
+            display="inline-flex"
+            alignItems="center"
             gap=".25rem"
+            color="blue.800"
+            fontWeight="600"
+            fontSize="sm"
+            textDecoration="none"
+            border="1px solid transparent"
+            _hover={{ textDecoration: 'underline', color: 'blue.900' }}
+            _active={{ textDecoration: 'none', outline: 'none', boxShadow: 'none' }}
+            _focus={{ outline: 'none', boxShadow: 'none' }}
+            _focusVisible={{ outline: 'none', boxShadow: 'none' }}
+            href="#"
+            onClick={(e) => { e.preventDefault(); setQrOpen(true); }}
           >
             <IconPhone size={16} />
             Contact Us
-          </Button>
+          </Link>
           <QRScannerModal isOpen={isQrOpen} onClose={() => setQrOpen(false)} />
          </HStack>
       </Grid>
