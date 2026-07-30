@@ -1,7 +1,7 @@
 import  { useState } from "react";
 import { Box, Flex, Text, Link, HStack, Grid, Menu, MenuButton, MenuList, MenuItem, Button, useToast } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
-import { IconBlocks, IconDownload, IconPhone, IconUsers } from "@tabler/icons-react";
+import { IconDownload, IconPhone, IconUsers } from "@tabler/icons-react";
 import gmcLogo from "../assets/logo.svg";
 import QRScannerModal from "../components/QRScannerModal";
 
