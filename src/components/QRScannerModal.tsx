@@ -10,8 +10,9 @@ import {
   Center,
   SimpleGrid,
   Flex,
+  Link,
 } from "@chakra-ui/react";
-import {  IconBuildingBank, IconFileText, IconPhone } from '@tabler/icons-react';
+import {  IconBuildingBank, IconFileText, IconMail, IconPhone } from '@tabler/icons-react';
 
 interface QRScannerModalProps {
   isOpen: boolean;
@@ -38,9 +39,29 @@ export default function QRScannerModal({ isOpen, onClose }: QRScannerModalProps)
                       Phone
                     </Text>
                   </Flex>
-                  <Text fontSize="md" color="gray.700" mb={1}>
-                    +91‑9630194429
-                  </Text>
+                  <Link href="tel:+919630194429" color="gray.700" fontSize="md" display="block" mb={1}>
+                    +91-9630194429
+                  </Link>
+                  <Link href="tel:+9425956809" color="gray.700" fontSize="md" display="block" mb={1}>
+                    +91-9425956809
+                  </Link>
+                  <Link href="tel:+919589895142" color="gray.700" fontSize="md" display="block" mb={1}>
+                    +91-9589895142
+                  </Link>
+                </Box>
+
+                <Box bg="gray.50" p={4} borderRadius="2xl" border="1px solid" borderColor="blue.50">
+                  <Flex align="center" gap={3} mb={3}>
+                    <Box bg="blue.50" borderRadius="xl" w="3rem" h="3rem" display="flex" alignItems="center" justifyContent="center">
+                      <IconMail size={24} color="#2b6cb0" />
+                    </Box>
+                    <Text fontSize="xs" letterSpacing="widest" textTransform="uppercase" color="blue.600" fontWeight="700">
+                      Email
+                    </Text>
+                  </Flex>
+                  <Link href="mailto:techgmc@gmail.com" color="gray.700" fontSize="md" display="block">
+                    techgmc@gmail.com
+                  </Link>
                 </Box>
 
                 <Box bg="gray.50" p={4} borderRadius="2xl" border="1px solid" borderColor="blue.50">
@@ -69,9 +90,9 @@ export default function QRScannerModal({ isOpen, onClose }: QRScannerModalProps)
                     </Text>
                   </Flex>
                   <Text fontSize="sm" color="gray.700" lineHeight="taller">
-                    CIN: 
-                    <br />
-                    GST: 
+                    GST: 23AMRPK3280F1Z1
+                    <br/>
+                    PAN: AMRPK3280F 
                   </Text>
                 </Box>
               </SimpleGrid>

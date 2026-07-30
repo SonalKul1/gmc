@@ -138,7 +138,7 @@ export default function Header() {
                   <IconDownload size={16} />
                   Product Catalogue
                 </MenuItem>
-                <MenuItem gap={".5rem"} fontSize="sm" _hover={{ textDecoration: 'underline' }} onClick={() => downloadFile('/GMC-Repair_Catalogue.jpeg', 'GMC-Repair_Catalogue.jpeg')}>
+                <MenuItem gap={".5rem"} fontSize="sm" _hover={{ textDecoration: 'underline' }} onClick={() => downloadFile('/GMC-Repair_Catalogue.png', 'GMC-Repair_Catalogue.png')}>
                   <IconDownload size={16} />
                   Repair Services Catalogue
                 </MenuItem>
