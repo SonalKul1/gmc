@@ -5,25 +5,8 @@ import {
   Link,
   VStack,
   HStack,
-  Separator,
   SimpleGrid,
 } from '@chakra-ui/react';
-
-const quickLinks = [
-  { label: 'Home', href: '#' },
-  { label: 'About Us', href: '#about' },
-  { label: 'Products', href: '#products' },
-  { label: 'Catalogue', href: '#catalogue' },
-  { label: 'Partners', href: '#partners' },
-  { label: 'Contact Us', href: '#contact' },
-];
-
-const productLinks = [
-  { label: 'Laboratory Glassware', href: '#' },
-  { label: 'Photochemical Reactors', href: '#' },
-  { label: 'Hydrogen Distribution Systems', href: '#' },
-  { label: 'Custom Fabrication', href: '#' },
-];
 
 export default function Footer() {
   return (
@@ -77,8 +60,6 @@ export default function Footer() {
             ))} */}
           </VStack>
         </SimpleGrid>
-
-        <Separator borderColor="gray.600" mt={".5rem"} mb={".5rem"} />
 
         <Flex
           direction={{ base: 'column', sm: 'row' }}
